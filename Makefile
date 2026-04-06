@@ -15,9 +15,9 @@ export GIT_REVISION := $(GIT_BRANCH)-$(shell git rev-parse --short HEAD)
 export VERSION_DIRTY := $(VERSION)
 export VERSION_WITH_HASH := $(VERSION)-$(shell git rev-parse --short HEAD)
 else
-export GIT_REVISION := $(GIT_BRANCH)-$(shell git rev-parse --short HEAD)-dirty
-export VERSION_DIRTY := $(VERSION)-dirty
-export VERSION_WITH_HASH := $(VERSION)-$(shell git rev-parse --short HEAD)-dirty
+export GIT_REVISION := $(GIT_BRANCH)-$(shell git rev-parse --short HEAD)
+export VERSION_DIRTY := $(VERSION)
+export VERSION_WITH_HASH := $(VERSION)-$(shell git rev-parse --short HEAD)
 endif
 
 export BUILD_DATE := -DDATE_YEAR=\"$(shell date +%Y)\" \
@@ -27,7 +27,7 @@ export BUILD_DATE := -DDATE_YEAR=\"$(shell date +%Y)\" \
 					-DDATE_MIN=\"$(shell date +%M)\" \
 					-DDATE_SEC=\"$(shell date +%S)\" \
 
-export CUSTOM_DEFINES := -DVERSION=\"v$(VERSION)\" \
+export CUSTOM_DEFINES := -DVERSION=\"$(VERSION)\" \
 					-DGIT_BRANCH=\"$(GIT_BRANCH)\" \
 					-DGIT_REVISION=\"$(GIT_REVISION)\" \
 					-DVERSION_DIRTY=\"$(VERSION_DIRTY)\" \

@@ -2300,7 +2300,7 @@ namespace tsl {
              * @param onValue Value drawn if the toggle is on
              * @param offValue Value drawn if the toggle is off
              */
-            ToggleListItem(const std::string& text, bool initialState, const std::string& onValue = "On", const std::string& offValue = "Off")
+            ToggleListItem(const std::string& text, bool initialState, const std::string& onValue = "\uE14B", const std::string& offValue = "\uE14C")
                 : ListItem(text), m_state(initialState), m_onValue(onValue), m_offValue(offValue) {
 
                 this->setState(this->m_state);

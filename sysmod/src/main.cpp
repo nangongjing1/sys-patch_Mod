@@ -663,19 +663,20 @@ int main(int argc, char* argv[]) {
         ms_2_str(patch_time, diff_ns/1000ULL/1000ULL);
 
         // defined in the Makefile
-        #define DATE (DATE_DAY "." DATE_MONTH "." DATE_YEAR " " DATE_HOUR ":" DATE_MIN ":" DATE_SEC)
+        #define DATE (DATE_YEAR "/" DATE_MONTH "/" DATE_DAY " " DATE_HOUR ":" DATE_MIN)
 
-        ini_puts("stats", "版本", VERSION_WITH_HASH, log_path);
+        ini_puts("stats", "软件版本", VERSION_WITH_HASH, log_path);
         ini_puts("stats", "构建日期", DATE, log_path);
+        ini_puts("stats", "中文翻译", "南宫镜", log_path);
+        ini_puts("stats", "修补耗时", patch_time, log_path);
+        ini_putl("stats", "虚拟系统", emummc, log_path);
         ini_puts("stats", "固件版本", fw_version, log_path);
         ini_puts("stats", "大气层版本", ams_version, log_path);
         ini_puts("stats", "大气层目标版本", ams_target_version, log_path);
         ini_puts("stats", "大气层密钥版本", ams_keygen, log_path);
         ini_puts("stats", "大气层提交哈希", ams_hash, log_path);
-        ini_putl("stats", "虚拟系统?", emummc, log_path);
         ini_putl("stats", "堆大小", INNER_HEAP_SIZE, log_path);
         ini_putl("stats", "缓冲区大小", READ_BUFFER_SIZE, log_path);
-        ini_puts("stats", "修补耗时", patch_time, log_path);
     }
 
     // note: sysmod exits here.

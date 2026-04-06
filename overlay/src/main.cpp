@@ -71,10 +71,10 @@ public:
     GuiOptions() { }
 
     tsl::elm::Element* createUI() override {
-        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION_WITH_HASH);
+        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION);
         auto list = new tsl::elm::List();
 
-        list->addItem(new tsl::elm::CategoryHeader("设置"));
+        list->addItem(new tsl::elm::CategoryHeader("修补设置"));
         list->addItem(config_patch_sysmmc.create_list_item("真实系统"));
         list->addItem(config_patch_emummc.create_list_item("虚拟系统"));
         list->addItem(config_logging.create_list_item("事件日志"));
@@ -95,7 +95,7 @@ public:
     GuiToggle() { }
 
     tsl::elm::Element* createUI() override {
-        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION_WITH_HASH);
+        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION);
         auto list = new tsl::elm::List();
 
         list->addItem(new tsl::elm::CategoryHeader("FS - 0100000000000000"));
@@ -173,7 +173,7 @@ public:
     GuiLog() { }
 
     tsl::elm::Element* createUI() override {
-        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION_WITH_HASH);
+        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION);
         auto list = new tsl::elm::List();
 
         if (does_file_exist(LOG_PATH)) {
@@ -209,7 +209,7 @@ public:
                     auto *item = new tsl::elm::ListItem(Key);
                     item->setValue(Value, true);
                     user->list->addItem(item);
-                } else if (user->last_section == "stats") {
+                } else if (user->last_section == "系统信息") {
                     auto *item = new tsl::elm::ListItem(Key);
                     item->setValue(Value, true);
                     user->list->addItem(item);
@@ -222,7 +222,7 @@ public:
                 return 1;
             }, &callback_userdata, LOG_PATH);
         } else {
-            list->addItem(new tsl::elm::ListItem("无事件日志!"));
+            list->addItem(new tsl::elm::ListItem("未找到事件日志!"));
         }
 
         frame->setContent(list);
@@ -235,12 +235,12 @@ public:
     GuiMain() { }
 
     tsl::elm::Element* createUI() override {
-        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION_WITH_HASH);
+        auto frame = new tsl::elm::OverlayFrame("签名补丁",std::string("南宫镜 汉化 ") + VERSION);
         auto list = new tsl::elm::List();
 
-        auto options = new tsl::elm::ListItem("设置");
-        auto toggle = new tsl::elm::ListItem("切换补丁状态");
-        auto log = new tsl::elm::ListItem("查看日志");
+        auto options = new tsl::elm::ListItem("修补设置");
+        auto toggle = new tsl::elm::ListItem("补丁状态");
+        auto log = new tsl::elm::ListItem("事件日志");
 
         options->setClickListener([](u64 keys) -> bool {
             if (keys & HidNpadButton_A) {
@@ -266,7 +266,7 @@ public:
             return false;
         });
 
-        list->addItem(new tsl::elm::CategoryHeader("菜单"));
+        list->addItem(new tsl::elm::CategoryHeader("选项菜单"));
         list->addItem(options);
         list->addItem(toggle);
         list->addItem(log);

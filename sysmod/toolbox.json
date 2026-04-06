@@ -1,5 +1,5 @@
 {
-    "name"  : "sys-patch",
+    "name"  : "签名补丁",
     "tid"   : "420000000000000B",
     "requires_reboot": false
 }
