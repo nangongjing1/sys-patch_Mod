@@ -205,7 +205,7 @@ public:
                     auto *item = new tsl::elm::ListItem(Key);
                     item->setValue("修补", true);
                     user->list->addItem(item);
-                } else if (value.starts_with("修补") || value.starts_with("禁用")) {
+                } else if (value.starts_with("无效") || value.starts_with("禁用")) {
                     auto *item = new tsl::elm::ListItem(Key);
                     item->setValue(Value, true);
                     user->list->addItem(item);

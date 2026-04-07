@@ -495,7 +495,7 @@ auto ini_load_or_write_default(const char* section, const char* key, long _defau
 
 auto patch_result_to_str(PatchResult result) -> const char* {
     switch (result) {
-        case PatchResult::NOT_FOUND: return "未修补";
+        case PatchResult::NOT_FOUND: return "无效";
         case PatchResult::SKIPPED: return "跳过";
         case PatchResult::DISABLED: return "禁用";
         case PatchResult::PATCHED_FILE: return "修补(Sigpatches)";
