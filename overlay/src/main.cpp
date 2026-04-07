@@ -201,11 +201,11 @@ public:
                 constexpr tsl::Color colour_unpatched{F(250), F(90), F(58), F(255)};
                 #undef F
 
-                if (value.starts_with("已修补")) {
+                if (value.starts_with("修补")) {
                     auto *item = new tsl::elm::ListItem(Key);
-                    item->setValue("已修补", true);
+                    item->setValue("修补", true);
                     user->list->addItem(item);
-                } else if (value.starts_with("未修补") || value.starts_with("已禁用")) {
+                } else if (value.starts_with("修补") || value.starts_with("禁用")) {
                     auto *item = new tsl::elm::ListItem(Key);
                     item->setValue(Value, true);
                     user->list->addItem(item);

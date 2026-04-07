@@ -496,10 +496,10 @@ auto ini_load_or_write_default(const char* section, const char* key, long _defau
 auto patch_result_to_str(PatchResult result) -> const char* {
     switch (result) {
         case PatchResult::NOT_FOUND: return "未修补";
-        case PatchResult::SKIPPED: return "已跳过";
-        case PatchResult::DISABLED: return "已禁用";
-        case PatchResult::PATCHED_FILE: return "已修补(文件)";
-        case PatchResult::PATCHED_SYSPATCH: return "已修补(签名补丁)";
+        case PatchResult::SKIPPED: return "跳过";
+        case PatchResult::DISABLED: return "禁用";
+        case PatchResult::PATCHED_FILE: return "修补(Sigpatches)";
+        case PatchResult::PATCHED_SYSPATCH: return "修补(sys-patch)";
         case PatchResult::FAILED_WRITE: return "失败(内存写入错误)";
     }
 
